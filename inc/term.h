@@ -1,9 +1,10 @@
 #ifndef TERM_H
 #define TERM_H
 
-char TERM_getch(void);
-int TERM_getchNB(char* key);
+int TERM_enableRawMode(void);
+int TERM_disableRawMode(void);
 
-void TERM_sleepms(unsigned int ms);
+int TERM_getch(void);
+int TERM_getchNB(char* key);
 
 #endif

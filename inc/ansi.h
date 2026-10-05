@@ -52,6 +52,22 @@
 #define ANSI_BG_BRIGHT_CYAN "\x1b[106m"
 #define ANSI_BG_BRIGHT_WHITE "\x1b[107m"
 
+#define ANSI_MOUSE_SHIFT 4
+#define ANSI_MOUSE_ALT 8
+#define ANSI_MOUSE_CTRL 16
+
+typedef struct {
+    unsigned int button;
+    unsigned int x;
+    unsigned int y;
+    unsigned int modifiers;
+    int motion;
+    int release;
+    int wheel;
+} ANSI_MouseEvent;
+
+void ANSI_flush(void);
+
 void ANSI_fg256(int idx);
 void ANSI_bg256(int idx);
 
@@ -72,5 +88,10 @@ void ANSI_showCursor(void);
 
 void ANSI_saveCursor(void);
 void ANSI_restoreCursor(void);
+
+void ANSI_enableMouse(void);
+void ANSI_disableMouse(void);
+
+int ANSI_getMouseEvent(ANSI_MouseEvent *event);
 
 #endif
