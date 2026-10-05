@@ -1,5 +1,7 @@
 #include <stdio.h>
+
 #include "ansi.h"
+#include "term.h"
 
 int main(void) {
     ANSI_clearScreen();
